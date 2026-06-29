@@ -135,7 +135,7 @@ Cumulative scoring: HIGH=10pts, MEDIUM=5pts, LOW=1pt. CRITICAL threshold at 20pt
 - [x] Unit tests — 15/15 passing (pytest)
 - [x] config/rules.yaml — configurable thresholds without code changes
 - [x] Export alerts to CSV for analysis
-- [ ] Suricata integration — compare NetWatch alerts vs IDS ground truth
+- [x] Suricata integration — compare NetWatch alerts vs IDS ground truth
 
 ---
 
