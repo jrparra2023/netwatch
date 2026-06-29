@@ -1,0 +1,45 @@
+# NetWatch — rules.yaml
+# Umbrales de detección configurables sin modificar código
+# Autor: José Rafael Parra Dugarte
+
+port_scan:
+  port_threshold: 10      # puertos distintos para disparar alerta
+  time_window: 30         # segundos de ventana de análisis
+  severity: HIGH
+
+dns_anomaly:
+  query_threshold: 50     # consultas DNS por IP para alerta MEDIUM
+  severity: MEDIUM
+  high_risk_tlds:
+    - ".tk"
+    - ".pw"
+    - ".xyz"
+    - ".top"
+    - ".cc"
+    - ".ru"
+  suspicious_keywords:
+    - "login-"
+    - "secure-"
+    - "verify-"
+    - "account-"
+    - "update-"
+    - "banking"
+    - "paypal"
+    - "netflix"
+    - "-support"
+    - "helpdesk"
+  blacklist:
+    - "malware.com"
+    - "phishing-site.net"
+    - "evil.ru"
+    - "fakebank.tk"
+    - "steal-credentials.xyz"
+    - "botnet.cc"
+    - "ransomware.top"
+    - "exploit-kit.pw"
+
+scoring:
+  HIGH: 10
+  MEDIUM: 5
+  LOW: 1
+  critical_threshold: 20
