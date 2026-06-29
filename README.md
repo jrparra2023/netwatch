@@ -18,6 +18,8 @@ Open-source network traffic analyzer with real-time threat detection. Built on K
 - Unified alert engine — consolidates multi-source alerts with cumulative severity scoring
 - Real-time Flask dashboard — threat summary, alert log, auto-refresh every 10s
 - Structured alert logging — JSON with timestamp, source IP, severity, and reason
+- CSV export — alerts exportable for external analysis
+- Configurable thresholds — all detection rules tunable via config/rules.yaml
 - 15 unit tests — pytest coverage for all detection modules (15/15 passing)
 
 ---
@@ -80,13 +82,18 @@ python3 analysis/dns_analyzer.py
 python3 alerts/alert_engine.py
 ```
 
-**5. Launch dashboard:**
+**5. Export alerts to CSV:**
+```bash
+python3 alerts/export_csv.py
+```
+
+**6. Launch dashboard:**
 ```bash
 python3 dashboard/app.py
 # Open http://localhost:5000
 ```
 
-**6. Run tests:**
+**7. Run tests:**
 ```bash
 pytest tests/test_detector.py -v
 ```
@@ -107,6 +114,9 @@ Cumulative scoring: HIGH=10pts, MEDIUM=5pts, LOW=1pt. CRITICAL threshold at 20pt
 ---
 
 ## Test Results
+
+15 passed in 0.07s
+
 | Test Class | Tests | Status |
 |---|---|---|
 | TestPortScanner | 5 | PASSED |
@@ -123,9 +133,9 @@ Cumulative scoring: HIGH=10pts, MEDIUM=5pts, LOW=1pt. CRITICAL threshold at 20pt
 - [x] Unified alert engine with severity scoring (alert_engine.py)
 - [x] Real-time Flask dashboard (dashboard/app.py)
 - [x] Unit tests — 15/15 passing (pytest)
-- [ ] config/rules.yaml — configurable thresholds without code changes
+- [x] config/rules.yaml — configurable thresholds without code changes
+- [x] Export alerts to CSV for analysis
 - [ ] Suricata integration — compare NetWatch alerts vs IDS ground truth
-- [ ] Export alerts to CSV for analysis
 
 ---
 
